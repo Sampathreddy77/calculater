@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            border: 2px solid;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        #result {
+
+            padding: 10px 40px;
+            border: solid;
+        }
+
+        button {
+            padding: 20px;
+            border-radius: 0%;
+            font-size: medium;
+            font-style: italic;
+
+        }
+
+        button:hover {
+            background-color: rgb(70, 132, 132);
+
+        }
+
+        #operater{
+            color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div><input type="text" placeholder="0" id="result"></div>
+        <div class="row">
+            <button onclick="ac()" id="operater">C</button>
+            <button onclick="del()" id="operater">Del</button>
+            <button onclick="show('%')" id="operater">%</button>
+            <button onclick="show('/')" id="operater">/</button>
+        </div>
+        <div class="row">
+            <button onclick="show('7')">7</button>
+            <button onclick="show('8')">8</button>
+            <button onclick="show('9')">9</button>
+            <button onclick="show('*')" id="operater">*</button>
+        </div>
+        <div class="row">
+            <button onclick="show('4')">4</button>
+            <button onclick="show('5')">5</button>
+            <button onclick="show('6')">6</button>
+            <button onclick="show('-')" id="operater">-</button>
+        </div>
+        <div class="row">
+            <button onclick="show('1')">1</button>
+            <button onclick="show('2')">2</button>
+            <button onclick="show('3')">3</button>
+            <button onclick="show('+')" id="operater">+</button>
+        </div>
+        <div class="row">
+            <button onclick="g()">Exit</button>
+            <button onclick="show('.')">.</button>
+            <button onclick="show('0')">0</button>
+            <button onclick="equal()" id="operater">=</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    function ac() {
+        document.getElementById("result").value = ""
+    }
+    function del() {
+        var last = document.getElementById("result").value.slice(0, -1)
+        document.getElementById("result").value = last
+    }
+    function show(i) {
+        document.getElementById("result").value += i;
+    }
+
+    function equal() {
+
+        var value = eval(document.getElementById("result").value)
+        document.getElementById("result").value = value
+    }
+    function g(){
+   
+        window.close() 
+    }
+    // function s(a){
+    //     document.getElementById("result").value=a.(!repeat);
+    // }
+</script>
+
+</html>
